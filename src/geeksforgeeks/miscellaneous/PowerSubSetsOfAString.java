@@ -1,91 +1,81 @@
 package geeksforgeeks.miscellaneous;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PowerSubSetsOfAString {
 
 	public static void main(String[] args) {
 		String str = "abcd";
-		int n = str.length();
-		char[] charArray = str.toCharArray();
-		List<String> ps = new ArrayList<String>();
-		for (char c : charArray) {
-			ps.add(c + "");
-		}
-		// firstApproach(str);
-		// secondApproach(str);
-		// thirdApproach(str);
-		getpowerset(charArray, n, ps);
+
+		possibleSubStringsOfAString(str);
+		powerSubSetOfAString(str);
 
 	}
 
-	public static ArrayList<String> getpowerset(char a[], int n, List<String> ps) {
-		if (n < 0) {
-			return null;
+	/**
+	 * This method is used to calculate all the possible sub strings of a
+	 * String(Power sub sets)
+	 * 
+	 * Example: S = {abc} P(S) = {}, {c}, {b}, {bc}, {a}, {ac}, {ab}, {abc}
+	 * 
+	 * @param str
+	 */
+	private static void powerSubSetOfAString(String str) {
+		int strLength = str.length();
+		int powerSetSize = (int) Math.pow(2, strLength);
+		StringBuilder result = new StringBuilder();
+		// Set<String> resultSet = new LinkedHashSet<String>();
+		for (int i = 0; i < powerSetSize; i++) {
+			String binary = intToBinary(i, strLength);
+			// Set<String> innerSet = new LinkedHashSet<String>();
+			StringBuilder inner = new StringBuilder();
+			for (int j = 0; j < binary.length(); j++) {
+				if (binary.charAt(j) == '1') {
+					inner.append(str.charAt(j));
+				}
+			}
+			result.append("{").append(inner).append("},");
 		}
-		if (n == 0) {
-			if (ps == null)
-				ps = new ArrayList<String>();
-			ps.add(" ");
-			return (ArrayList<String>) ps;
-		}
-		ps = getpowerset(a, n - 1, ps);
-		ArrayList<String> tmp = new ArrayList<String>();
-		for (String s : ps) {
-			if (s.equals(" "))
-				tmp.add("" + a[n - 1]);
-			else
-				tmp.add(s + a[n - 1]);
-		}
-		ps.addAll(tmp);
-		return (ArrayList<String>) ps;
+		System.out.println(result);
 	}
 
-	private static void thirdApproach(String str) {
+	/**
+	 * Converts the given integer to a String representing a binary number with
+	 * the specified number of digits For example when using 4 digits the binary
+	 * 1 is 0001
+	 * 
+	 * @param number
+	 * @param digits
+	 * @return binaryString
+	 */
+	private static String intToBinary(int number, int digits) {
+		String binaryString = Integer.toBinaryString(number);
+		int convertedLength = binaryString.length();
+
+		for (int i = convertedLength; i < digits; i++) {
+			binaryString = "0" + binaryString;
+		}
+		return binaryString;
+	}
+
+	/**
+	 * This method is used to get all the possible substrings of a string.
+	 * 
+	 * Example: S = {abc} P(S) = {c}, {b}, {bc}, {a}, {ab}, {abc}
+	 * 
+	 * @param str
+	 */
+	private static void possibleSubStringsOfAString(String str) {
 		StringBuilder res = new StringBuilder();
 		for (int i = 0; i < str.length(); i++) {
 
 			for (int j = i + 1; j <= str.length(); j++) {
+
 				String sub = str.substring(i, j);
 				res.append("{").append(sub).append("},");
+
 			}
 		}
 		System.out.println(res);
 
 	}
 
-	private static void secondApproach(String str) {
-		StringBuilder res = new StringBuilder();
-		for (int i = 0; i <= str.length(); i++) {
-
-			for (int j = 0; j <= str.length(); j++) {
-
-				if (j >= i) {
-					String sub = str.substring(i, j);
-					if ((i == 0 && j == 0) || (sub != null && !sub.equals(""))) {
-						res.append("{").append(sub).append("},");
-
-					}
-				}
-			}
-		}
-		System.out.println(res);
-
-	}
-
-	private static void firstApproach(String str) {
-		int strLength = str.length();
-		int powerSetSize = (int) Math.pow(2, strLength);
-
-		for (int i = 0; i < powerSetSize; i++) {
-			for (int j = 0; j < strLength; j++) {
-				if ((i & (1 << j)) != 0) {
-					System.out.printf("%c", str.charAt(j));
-				}
-				// System.out.print("%n");
-			}
-		}
-
-	}
 }
