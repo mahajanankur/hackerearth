@@ -1,4 +1,4 @@
-package com.threads;
+package javaConcepts.threads;
 
 public class TestSleep implements Runnable {
 

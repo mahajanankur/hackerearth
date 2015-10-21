@@ -1,4 +1,4 @@
-package com.datastructure.Arrays;
+package datastructure.Arrays;
 
 public class MajorityElement {
 

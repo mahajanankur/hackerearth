@@ -1,4 +1,4 @@
-package com.newPackage;
+package com.otherAPI;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

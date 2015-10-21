@@ -1,4 +1,4 @@
-package javaConcepts;
+package javaConcepts.miscellaneous;
 
 import java.io.File;
 import java.io.FileInputStream;

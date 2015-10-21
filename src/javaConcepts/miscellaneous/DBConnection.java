@@ -1,4 +1,4 @@
-package javaConcepts;
+package javaConcepts.miscellaneous;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

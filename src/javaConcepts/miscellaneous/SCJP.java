@@ -1,4 +1,4 @@
-package javaConcepts;
+package javaConcepts.miscellaneous;
 
 public class SCJP {
 

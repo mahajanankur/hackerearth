@@ -1,4 +1,4 @@
-package com.datastructure.LinkedList;
+package datastructure.LinkedList;
 
 import java.util.LinkedList;
 

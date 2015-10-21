@@ -3,7 +3,7 @@ package geeksforgeeks.miscellaneous;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PoweSubSetsOfAString {
+public class PowerSubSetsOfAString {
 
 	public static void main(String[] args) {
 		String str = "abcd";
