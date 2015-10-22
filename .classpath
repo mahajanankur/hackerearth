@@ -6,7 +6,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/amahajan/Downloads/gson-2.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/amahajan/Downloads/itextpdf-5.5.7.jar"/>
+	<classpathentry kind="lib" path="/home/ankur/My Stuff/Application/JARS/google-gson-2.2.4/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="/home/ankur/My Stuff/Application/JARS/iText/itextpdf-5.5.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
