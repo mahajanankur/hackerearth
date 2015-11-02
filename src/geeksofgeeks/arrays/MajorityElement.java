@@ -9,6 +9,7 @@ public class MajorityElement {
 		firstApproach(arr, minOccure);
 	}
 
+	//needs to improve.
 	private static void firstApproach(int[] arr, int minOccure) {
 		String result = null;
 		for (int i = 0; i < arr.length; i++) {
