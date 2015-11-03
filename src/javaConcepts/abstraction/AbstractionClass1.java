@@ -7,17 +7,18 @@ public class AbstractionClass1 {
 	 * public static void main(String[] args) { // TODO Auto-generated method
 	 * stub }
 	 */
-	private String	a	= "In AbstractionClass1";
-	private int		b;
+	private String a = "In AbstractionClass1";
+
+	private int b;
 
 	public String normalMethod(String a) {
 		return "in normalMethod()";
 	}
 
-	/*
-	 * public abstract String abstractMethod1(String c); public abstract String
-	 * abstractMethod2(int d);
-	 */
+	// public abstract String abstractMethod1(String c);
+	//
+	// public abstract String abstractMethod2(int d);
+
 	/**
 	 * @return the a
 	 */
