@@ -18,7 +18,7 @@ public class SubSetOfAList {
 		ls.add('g');
 
 		int subIndex[] = new int[] { 1, 4, 5 };
-		Map<Integer, Character> result = new LinkedHashMap<>();
+		Map<Integer, Character> result = new LinkedHashMap<Integer, Character>();
 
 		for (int i = 0; i < subIndex.length; i++) {
 			result.put(i, ls.get(subIndex[i] - 1));

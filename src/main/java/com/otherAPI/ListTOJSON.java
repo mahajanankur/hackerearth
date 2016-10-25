@@ -15,7 +15,7 @@ public class ListTOJSON {
 	}
 
 	private static void firstApproach() {
-		List<DummyList> list = new ArrayList<>();
+		List<DummyList> list = new ArrayList<DummyList>();
 		list.add(new DummyList("Ankur", 1, 00000));
 		list.add(new DummyList("An", 2, 10000));
 		list.add(new DummyList("Anku", 3, 20000));

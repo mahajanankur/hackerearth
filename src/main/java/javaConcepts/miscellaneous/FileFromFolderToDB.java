@@ -3,11 +3,6 @@ package javaConcepts.miscellaneous;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,29 +18,30 @@ public class FileFromFolderToDB {
 	public static void main(String[] args) {
 		// storeIntoDB(folder);
 		// retriveFromDB();
-		copyFromOneFolderToAnother();
+		// copyFromOneFolderToAnother();
 	}
 
-	private static void copyFromOneFolderToAnother() {
-		Path from = Paths.get("/home/ankur/Desktop/App_Photos/");
-		Path to = Paths.get("/home/ankur/Desktop/Temp/");
-
-		for (final File fileEntry : folder.listFiles()) {
-			if (fileEntry.isDirectory()) {
-				storeIntoDB(fileEntry);
-			} else {
-
-				System.out.println(fileEntry.getName());
-				try {
-					Files.copy(fileEntry.getAbsoluteFile().toPath(), to, StandardCopyOption.REPLACE_EXISTING);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-			}
-		}
-
-	}
+	// private static void copyFromOneFolderToAnother() {
+	// Path from = Paths.get("/home/ankur/Desktop/App_Photos/");
+	// Path to = Paths.get("/home/ankur/Desktop/Temp/");
+	//
+	// for (final File fileEntry : folder.listFiles()) {
+	// if (fileEntry.isDirectory()) {
+	// storeIntoDB(fileEntry);
+	// } else {
+	//
+	// System.out.println(fileEntry.getName());
+	// try {
+	// Files.copy(fileEntry.getAbsoluteFile().toPath(), to,
+	// StandardCopyOption.REPLACE_EXISTING);
+	// } catch (IOException e) {
+	// e.printStackTrace();
+	// }
+	//
+	// }
+	// }
+	//
+	// }
 
 	private static void retriveFromDB() {
 		try {
@@ -61,7 +57,7 @@ public class FileFromFolderToDB {
 				System.out.println(blob);
 			}
 
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
