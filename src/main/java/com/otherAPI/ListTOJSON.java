@@ -3,9 +3,8 @@ package com.otherAPI;
 import java.util.ArrayList;
 import java.util.List;
 
-import javaConcepts.miscellaneous.DummyList;
-
 import com.google.gson.Gson;
+import com.java.miscellaneous.DummyList;
 
 public class ListTOJSON {
 
