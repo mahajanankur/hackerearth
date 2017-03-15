@@ -25,9 +25,9 @@ public class TestMap1 {
 		map.put(person1, "First");
 		map.put(person2, "Second");
 
-		// for (Map.Entry<Person, String> string : map.entrySet()) {
-		// System.out.println(string);
-		// }
+		for (Map.Entry<Person, String> string : map.entrySet()) {
+			System.out.println(string);
+		}
 		// if (person1.hashCode() == person2.hashCode())
 		System.out.println(map.get(person1));
 		System.out.println(map.get(person2));
