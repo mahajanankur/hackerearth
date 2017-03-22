@@ -30,5 +30,4 @@ public class TestInterface1 implements Interface1, Interface2 {
 	public void defaultDetails() {
 		Interface2.super.defaultDetails();
 	}
-
 }
