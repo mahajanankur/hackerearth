@@ -18,6 +18,7 @@ public class TestInterface1 implements Interface1, Interface2 {
 		test.defaultDetails();
 		Interface1.staticDetails();
 		test.defaultDetails();
+		test.abstractDetails();
 	}
 
 	@Override
@@ -28,6 +29,8 @@ public class TestInterface1 implements Interface1, Interface2 {
 
 	@Override
 	public void defaultDetails() {
-		Interface2.super.defaultDetails();
+		Interface1.super.defaultDetails();
 	}
+
+	
 }
