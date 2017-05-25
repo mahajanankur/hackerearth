@@ -4,7 +4,6 @@
 package com.java.json;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,15 +36,26 @@ public class JsonUtil {
 		// Map<String, Object> map = convertJsonToMap(json);
 		// System.out.println(map);
 
-		String foo = "blue";
-		String bar = foo;
-		foo = "green";
-		System.out.println(bar);
+		// String foo = "blue";
+		// String bar = foo;
+		// foo = "green";
+		// System.out.println(bar);
 		// List<Person> list = new ArrayList<>();
 		// list.add(new Person("ankur", "mahajan", "1213223"));
 		// list.add(new Person("amar", "vaish", "1213223"));
 		// list.add(new Person("gurminder", "multani", "1213223"));
 		// convertObjectToJson(list);
+
+		String complexJson = "{\"id\":\"28e440a0-3bbb-11e7-a7ef-2dd530f57334\",\"arn\":\"testarn\",\"notifig\":\"Homes1\",\"deviceToken\":[\"eg0dc69nQi8:APA91bFFrmpc3Bp9_6DbQEz_yZIQZvMkrxmgELRPLcQlTYaMPDbn9yzU4IgIwxhArKqzc9CYIk5mo_RYBUopEgC25pdRvRXP9aDmDIonJveML2keVDBFrZWjsFeHBU5pUs9OiT7ZNkhM\"],\"data\":{\"name\":\"Sherlock Homes\",\"payload\":{\"url\":\"atcost.com\",\"pushId\":10}}}";
+		convertComplexJSON(complexJson);
+
+	}
+
+	private static void convertComplexJSON(String complexJson)
+			throws com.fasterxml.jackson.core.JsonParseException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		PushPojo1 readValue = mapper.readValue(complexJson, PushPojo1.class);
+		System.out.println(readValue);
 
 	}
 
