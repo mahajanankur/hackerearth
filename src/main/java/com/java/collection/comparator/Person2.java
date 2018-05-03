@@ -7,7 +7,7 @@ package com.java.collection.comparator;
  * @author amahajan
  * 
  */
-public class Person {
+public class Person2 {
 
 	private String firstName;
 
@@ -15,28 +15,10 @@ public class Person {
 
 	private String mobile;
 
-	private Integer id;
-
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Person(String firstName, String lastName, String mobile, Integer id) {
+	public Person2(String firstName, String lastName, String mobile) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.mobile = mobile;
-		this.id = id;
 	}
 
 	/**

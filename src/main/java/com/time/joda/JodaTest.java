@@ -22,10 +22,8 @@ public class JodaTest {
 		System.out.println("Normal : " + startNormal);
 		DateTime startUTC = new DateTime(System.currentTimeMillis(), DateTimeZone.UTC).withTimeAtStartOfDay().plusHours(8);
 		System.out.println("UTC : " + startUTC);
-		DateTime startNormalToUTC = new DateTime(
-				new DateTime(System.currentTimeMillis(), DateTimeZone.forID(DEFAULT_TIME_ZONE)).withTimeAtStartOfDay()
-						.plusHours(8),
-				DateTimeZone.UTC);
+		DateTime startNormalToUTC = new DateTime(new DateTime(System.currentTimeMillis(), DateTimeZone.forID(DEFAULT_TIME_ZONE))
+				.withTimeAtStartOfDay().plusHours(8), DateTimeZone.UTC);
 		System.out.println("Normal To UTC : " + startNormalToUTC);
 
 		System.out.println("???? : " + getNewDateTimeInSpecifiedZone(startNormal, DEFAULT_TIME_ZONE));

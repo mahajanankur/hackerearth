@@ -3,7 +3,7 @@
  */
 package com.java.genrics;
 
-import com.java.collection.comparator.Person;
+import com.java.collection.comparator.Person2;
 
 /**
  * @author amahajan
@@ -11,9 +11,9 @@ import com.java.collection.comparator.Person;
  */
 public class GenricsExample2 {
 
-	public <A extends Person> A get(String str) {
+	public <A extends Person2> A get(String str) {
 		System.out.println("in Generic");
-		Person person = new Person("Ankur", "mahajan", "454545");
+		Person2 person = new Person2("Ankur", "mahajan", "454545");
 		A a = (A) person;
 		return a;
 
