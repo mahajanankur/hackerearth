@@ -46,9 +46,9 @@ public class JsonUtil {
 		// list.add(new Person("gurminder", "multani", "1213223"));
 		// convertObjectToJson(list);
 
-		String complexJson = "{\"id\":\"28e440a0-3bbb-11e7-a7ef-2dd530f57334\",\"arn\":\"testarn\",\"notifig\":\"Homes1\",\"deviceToken\":[\"eg0dc69nQi8:APA91bFFrmpc3Bp9_6DbQEz_yZIQZvMkrxmgELRPLcQlTYaMPDbn9yzU4IgIwxhArKqzc9CYIk5mo_RYBUopEgC25pdRvRXP9aDmDIonJveML2keVDBFrZWjsFeHBU5pUs9OiT7ZNkhM\"],\"data\":{\"name\":\"Sherlock Homes\",\"payload\":{\"url\":\"atcost.com\",\"pushId\":10}}}";
-		convertComplexJSON(complexJson);
-
+//		String complexJson = "{\"id\":\"28e440a0-3bbb-11e7-a7ef-2dd530f57334\",\"arn\":\"testarn\",\"notifig\":\"Homes1\",\"deviceToken\":[\"eg0dc69nQi8:APA91bFFrmpc3Bp9_6DbQEz_yZIQZvMkrxmgELRPLcQlTYaMPDbn9yzU4IgIwxhArKqzc9CYIk5mo_RYBUopEgC25pdRvRXP9aDmDIonJveML2keVDBFrZWjsFeHBU5pUs9OiT7ZNkhM\"],\"data\":{\"name\":\"Sherlock Homes\",\"payload\":{\"url\":\"atcost.com\",\"pushId\":10}}}";
+//		convertComplexJSON(complexJson);
+		
 	}
 
 	private static void convertComplexJSON(String complexJson)
