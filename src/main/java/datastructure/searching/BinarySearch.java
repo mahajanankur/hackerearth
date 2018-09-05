@@ -1,7 +1,7 @@
 /**
  * 
  */
-package datastructure.Arrays;
+package datastructure.searching;
 
 import java.io.BufferedReader;
 import java.io.IOException;
