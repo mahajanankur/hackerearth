@@ -1,8 +1,5 @@
 package com.java.threads;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class TestSleep implements Runnable {
 
 	private static final int	MYTHREADS	= 30;
