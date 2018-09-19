@@ -51,8 +51,10 @@ public class NewLanguage {
 		String val = normalResult + "";
 		if (val.contains("8")) {
 			long[][] counting = createMultiDArray(1, normalResult);
-			long newIndex = counting.indexOf(first) - counting.indexOf(second) - 1;
-			return counting.get((int) (newIndex));
+			// long newIndex = counting.indexOf(first) -
+			// counting.indexOf(second) - 1;
+			// return counting.get((int) (newIndex));
+			return 0;
 		}
 		else {
 			return normalResult;
@@ -107,9 +109,9 @@ public class NewLanguage {
 	private static long[][] createMultiDArray(long start, long actualValue) {
 		int numberOfRows = (int) ((actualValue / 8) * 2);
 		long[][] result = new long[numberOfRows][8];
-		for (int i = 1; i <= numberOfRows; i++) {
+		for (int i = 0; i <= numberOfRows; i++) {
 
-			for (int j = 1; j <= result[i].length; j++) {
+			for (int j = 0; j <= result[i].length; j++) {
 				String value = i + "";
 				if (!value.contains("8")) {
 					result[i][j] = i;
