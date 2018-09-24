@@ -7,7 +7,7 @@ package com.java.threads;
  * @author ankur.mahajan
  * @written 06-Mar-2018
  */
-public class PrintCountingByTwoThread implements Runnable {
+public class PrintCountingByTwoThread {
 
 	private int countingTill = 100;
 
@@ -21,8 +21,7 @@ public class PrintCountingByTwoThread implements Runnable {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		PrintCountingByTwoThread cls = new PrintCountingByTwoThread();
-		// cls.firstApproach();
-		cls.secondApproach();
+		cls.firstApproach();
 
 	}
 
@@ -101,53 +100,4 @@ public class PrintCountingByTwoThread implements Runnable {
 
 	}
 
-	private void secondApproach() {
-		Thread t1 = new Thread(new PrintCountingByTwoThread());
-		Thread t2 = new Thread(new PrintCountingByTwoThread());
-		t1.setName("ODD");
-		t2.setName("EVEN");
-		t1.start();
-		t2.start();
-	}
-
-	@Override
-	public void run() {
-		synchronized (this) {
-			while (countingTill > start) {
-				if (isOdd) {
-					if (Thread.currentThread().getName().equals("EVEN")) {
-						try {
-							wait();
-						}
-						catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-					System.out.println(Thread.currentThread().getName());
-					System.out.println(start);
-					start++;
-					isOdd = false;
-					notifyAll();
-				}
-				else {
-					if (Thread.currentThread().getName().equals("ODD")) {
-						try {
-							wait();
-						}
-						catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-					System.out.println(Thread.currentThread().getName());
-					System.out.println(start);
-					start++;
-					isOdd = true;
-					notifyAll();
-				}
-
-			}
-
-		}
-
-	}
 }
