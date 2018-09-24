@@ -4,7 +4,6 @@ public class PowerSubSetsOfAString {
 
 	public static void main(String[] args) {
 		String str = "abcd";
-		long currentTimeMillis = System.currentTimeMillis();
 		possibleSubStringsOfAString(str);
 		powerSubSetOfAString(str);
 
