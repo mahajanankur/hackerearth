@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import com.itextpdf.text.log.SysoCounter;
+
 /**
  * @author ankur.mahajan
  * @written 27-Oct-2018
@@ -21,6 +23,7 @@ public class Example1 {
 	public static void main(String[] args) {
 		Stream<String> stream = Stream.of("ankur", "happu", "atu", "sahil", "akriti");
 		long count = stream.count();
+		// stream.filter(p -> p.equals("Ankur"));
 		stream.close();
 
 		Stream<String> stream1 = Stream.of("ankur", "happu", "atu", "sahil", "akriti");
@@ -55,9 +58,22 @@ public class Example1 {
 		List<Integer> collect2 = stream2.filter(x -> x > 5).map(x -> x * x).collect(Collectors.toList());
 		stream2.close();
 
-		Stream<Integer> stream9 = Stream.of(1, 12, 7, 6, 0, 3);
-		String string = stream9.reduce(1, (a, b) -> a + b).toString();
+		Stream<String> stream9 = Stream.of("jatin ", "works", " G4s");
+		// String string = stream9.reduce((a, b) -> a + b).toString();
+		// String string = stream9.reduce((a, b) -> transform(a, b)).toString();
+		List<String> collect3 = stream9.map(x -> transform(x)).collect(Collectors.toList());
+		// System.out.println(stream9.filter(a -> a.contains(" ")).map(x ->
+		// x.concat("_")).toString());
+		System.out.println();
+	}
 
+	private static String transform(String a) {
+
+		if (a.contains(" ")) {
+			a = a.concat("_");
+		}
+
+		return a;
 	}
 
 }
