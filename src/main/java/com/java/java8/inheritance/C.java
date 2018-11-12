@@ -12,4 +12,10 @@ public class C extends A {
 	void get(long a, long b) {
 		System.out.println("C class get");
 	}
+
+	@Override
+	public void abstractDetails() {
+		// TODO Auto-generated method stub
+		
+	}
 }
