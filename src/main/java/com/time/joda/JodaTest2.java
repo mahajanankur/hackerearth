@@ -31,12 +31,47 @@ public class JodaTest2 {
 	public static void main(String[] args) {
 		// test1();
 		// test2();
-		test3();
+		// test3();
+		// utcToLocalToUTC();
+		dateTimeFromDate();
+	}
+
+	private static void dateTimeFromDate() {
+		String da = "2018-03-25";
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+		DateTime startDate = formatter.parseDateTime(da).withZoneRetainFields(DateTimeZone.UTC);
+
+		DateTime end = startDate.plusDays(1).minusSeconds(1).withSecondOfMinute(0);
+		System.out.println("Start in UTC : " + startDate);
+		System.out.println("End in UTC : " + end);
+
+	}
+
+	private static void utcToLocalToUTC() {
+		String da = "2018-03-25 04:12:00.0";
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SSS");
+		DateTime dt1 = formatter.parseDateTime(da).withZoneRetainFields(DateTimeZone.UTC);
+		DateTime local = new DateTime(dt1).withZone(DateTimeZone.forID("Europe/Dublin"));
+
+		DateTime utcStart = local.withTimeAtStartOfDay();
+
+		DateTime utcStart1 = new DateTime(utcStart).withZone(DateTimeZone.forID("Europe/Dublin"));
+		if (dt1.getMillis() == local.getMillis()) {
+			System.out.println("Equal");
+		}
+
+		System.out.println("String to UTC : " + dt1);
+		System.out.println("UTC to LOCAL : " + local);
+		System.out.println("Start Local to UTC : " + utcStart);
+		System.out.println("Start Local to UTC Timezone : " + utcStart1);
+
 	}
 
 	private static void test3() {
 		// String da = "2018-12-01T18:30:00.000Z";
-		String da = "2018-12-04 04:12:00.0";
+		// String da = "2018-12-04 04:12:00.0";
+		String da = "2018-03-25 04:12:00.0";
+
 		// DateTimeFormatter formatter = DateTimeFormat.forPattern("dd/MM/yyyy
 		// HH:mm:ss");
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SSS");
@@ -47,6 +82,10 @@ public class JodaTest2 {
 		DateTime dt1 = formatter.parseDateTime(da).withZoneRetainFields(DateTimeZone.UTC);
 		DateTime withZone = new DateTime(dt).withZone(DateTimeZone.forID("Europe/Dublin"));
 		DateTime withZone1 = new DateTime(dt1).withZone(DateTimeZone.forID("Europe/Dublin"));
+
+		DateTime dt3 = new DateTime(formatter.parseDateTime(da).withZoneRetainFields(DateTimeZone.UTC),
+				(DateTimeZone.forID("Europe/Dublin")));
+
 		System.out.println("First : " + dt);
 		System.out.println("Second : " + withZone);
 		System.out.println("Third : " + dt1);
