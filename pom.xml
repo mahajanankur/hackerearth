@@ -4,7 +4,7 @@
 	<groupId>HackerEarth</groupId>
 	<artifactId>HackerEarth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -50,6 +50,14 @@
 			<artifactId>json</artifactId>
 			<version>20140107</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>hackerEarth</finalName>

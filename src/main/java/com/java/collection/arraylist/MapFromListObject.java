@@ -26,7 +26,14 @@ public class MapFromListObject {
 		ls.add(new DtoSalary(8L, 10.00, 100L));
 		ls.add(new DtoSalary(9L, 10.00, 100L));
 
-		formMapFromList(ls);
+		// List<String> list = null;
+		// List<String> list = new ArrayList<>();
+
+		// for (String s : list) {
+		// System.out.println(s);
+		// }
+
+		// formMapFromList(ls);
 	}
 
 	private static void formMapFromList(List<DtoSalary> ls) {

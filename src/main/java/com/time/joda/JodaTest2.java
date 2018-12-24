@@ -37,13 +37,21 @@ public class JodaTest2 {
 	}
 
 	private static void dateTimeFromDate() {
-		String da = "2018-03-25";
+		// String da = "2018-03-25";
+		// String da = "2018-03-25 04:12:00.0";
+		String da = "2018-12-10T00:00:00.000Z";
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+		// formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SSS");
+		formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 		DateTime startDate = formatter.parseDateTime(da).withZoneRetainFields(DateTimeZone.UTC);
 
-		DateTime end = startDate.plusDays(1).minusSeconds(1).withSecondOfMinute(0);
+		DateTime end = startDate.plusDays(1).minusSeconds(1);// .withSecondOfMinute(0);
+
+		DateTime testWithZone = formatter.parseDateTime(da).withZone(DateTimeZone.UTC);
+
 		System.out.println("Start in UTC : " + startDate);
 		System.out.println("End in UTC : " + end);
+		System.out.println("End in UTC WithZone : " + testWithZone);
 
 	}
 

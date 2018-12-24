@@ -18,4 +18,9 @@ public class GenricsExample2 {
 		return a;
 
 	}
+	
+	public static <T extends Person2> T firstGenericTest(T a) {
+		
+		return (T) new Person2("Ankur", "mahajan", "454545");
+	}
 }
