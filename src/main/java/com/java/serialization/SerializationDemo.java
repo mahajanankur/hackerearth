@@ -20,27 +20,27 @@ public class SerializationDemo {
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
-	public static void main(String[] args) throws IOException,
-			ClassNotFoundException {
-		// serialization();
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		//serialization();
 		deserialization();
 	}
 
 	private static void serialization() throws IOException {
-		FileOutputStream out = new FileOutputStream("D://var//serializable.txt");
+		FileOutputStream out = new FileOutputStream("C://var//serializable.txt");
 		ObjectOutputStream outputStream = new ObjectOutputStream(out);
-		outputStream.writeObject(new Student(1, "Ankur", 26));
+		outputStream.writeObject(new Student(1, "Ankur", 26, "Shimla"));
 		outputStream.flush();
 		System.out.println("Serialized");
+		outputStream.close();
 
 	}
 
-	private static void deserialization() throws IOException,
-			ClassNotFoundException {
-		FileInputStream in = new FileInputStream("D://var//serializable.txt");
+	private static void deserialization() throws IOException, ClassNotFoundException {
+		FileInputStream in = new FileInputStream("C://var//serializable.txt");
 		ObjectInputStream inStream = new ObjectInputStream(in);
 
 		Student student = (Student) inStream.readObject();
 		System.out.println(student);
+		inStream.close();
 	}
 }

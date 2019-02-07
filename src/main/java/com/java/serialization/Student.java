@@ -15,13 +15,17 @@ public class Student implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private int					id;
+	private int id;
 
-	private transient String	name;
+	// private transient String name;
+	private static String name;
+	// private String name;
 
-	private int					age;
+	private int age;
+
+	private String address;
 
 	public Student(int id, String name, int age) {
 		super();
@@ -30,14 +34,12 @@ public class Student implements Serializable {
 		this.age = age;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", age=" + age + "]";
+	public Student(int id, String name, int age, String address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.address = address;
 	}
 
 	/**
@@ -83,6 +85,30 @@ public class Student implements Serializable {
 	 */
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address
+	 *            the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + "]";
 	}
 
 }
