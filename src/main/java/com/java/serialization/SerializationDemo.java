@@ -21,7 +21,7 @@ public class SerializationDemo {
 	 * @throws ClassNotFoundException
 	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		//serialization();
+		// serialization();
 		deserialization();
 	}
 
@@ -41,6 +41,7 @@ public class SerializationDemo {
 
 		Student student = (Student) inStream.readObject();
 		System.out.println(student);
+		// System.out.println(student.getHuman());
 		inStream.close();
 	}
 }

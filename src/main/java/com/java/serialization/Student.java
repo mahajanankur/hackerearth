@@ -3,19 +3,15 @@ package com.java.serialization;
 import java.io.Serializable;
 
 /**
- * 
- */
-
-/**
  * @author amahajan
  * 
  */
-public class Student implements Serializable {
+public class Student extends Human {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 
 	private int id;
 
@@ -100,6 +96,10 @@ public class Student implements Serializable {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public int getHuman() {
+		return super.getMemId();
 	}
 
 	/*
