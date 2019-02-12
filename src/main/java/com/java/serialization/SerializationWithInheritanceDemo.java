@@ -13,7 +13,7 @@ import java.io.ObjectOutputStream;
  * @author amahajan
  * 
  */
-public class SerializationDemo {
+public class SerializationWithInheritanceDemo {
 
 	/**
 	 * @param args
@@ -21,14 +21,15 @@ public class SerializationDemo {
 	 * @throws ClassNotFoundException
 	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		serialization();
+//		 serialization();
 		deserialization();
 	}
 
 	private static void serialization() throws IOException {
 		FileOutputStream out = new FileOutputStream("C://var//serializable.txt");
 		ObjectOutputStream outputStream = new ObjectOutputStream(out);
-		outputStream.writeObject(new Student(1, "Ankur", 26, "Shimla"));
+		ChildA childA = new ChildA(10, "Ankur");
+		outputStream.writeObject(childA);
 		outputStream.flush();
 		System.out.println("Serialized");
 		outputStream.close();
@@ -39,9 +40,8 @@ public class SerializationDemo {
 		FileInputStream in = new FileInputStream("C://var//serializable.txt");
 		ObjectInputStream inStream = new ObjectInputStream(in);
 
-		Student student = (Student) inStream.readObject();
-		System.out.println(student);
-		// System.out.println(student.getHuman());
+		ChildA childA = (ChildA) inStream.readObject();
+		System.out.println("Child ID: " + childA.id + " Child NAME : " + childA.name);
 		inStream.close();
 	}
 }

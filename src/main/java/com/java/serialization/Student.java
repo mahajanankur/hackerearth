@@ -1,17 +1,15 @@
 package com.java.serialization;
 
-import java.io.Serializable;
-
 /**
  * @author amahajan
  * 
  */
-public class Student extends Human {
+public class Student {
 
 	/**
 	 * 
 	 */
-	//private static final long serialVersionUID = 1L;
+	// private static final long serialVersionUID = 1L;
 
 	private int id;
 
@@ -96,10 +94,6 @@ public class Student extends Human {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public int getHuman() {
-		return super.getMemId();
 	}
 
 	/*
