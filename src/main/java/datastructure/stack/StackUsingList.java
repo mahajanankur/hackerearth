@@ -23,11 +23,11 @@ public class StackUsingList<E> {
 
 	public void push(E element) {
 		if (current == 0) {
-			minimum = (int) element;
+			minimum = (Integer) element;
 		}
 		else {
-			if (minimum > (int) element) {
-				minimum = (int) element;
+			if (minimum > (Integer) element) {
+				minimum = (Integer) element;
 			}
 		}
 		list.add(element);
