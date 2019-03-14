@@ -14,21 +14,19 @@ public class TestInterface1 implements Interface1, Interface2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//firstApproach();
+		// firstApproach();
 		C c = new C();
 		c.get(10L);
 	}
 
-	
 	private static void firstApproach() {
 		TestInterface1 test = new TestInterface1();
 		test.defaultDetails();
 		Interface1.staticDetails();
 		test.defaultDetails();
 		test.abstractDetails();
-		
-	}
 
+	}
 
 	@Override
 	public void abstractDetails() {
@@ -41,5 +39,8 @@ public class TestInterface1 implements Interface1, Interface2 {
 		Interface1.super.defaultDetails();
 	}
 
-	
+	public void staticDetails() {
+		Interface1.staticDetails();
+	}
+
 }

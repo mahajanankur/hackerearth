@@ -13,7 +13,7 @@ public class PrintCountingByTwoThread {
 
 	private static int start = 1;
 
-	private static boolean isOdd = true;
+	private boolean isOdd = start % 2 == 0 ? false : true;
 
 	/**
 	 * @param args
