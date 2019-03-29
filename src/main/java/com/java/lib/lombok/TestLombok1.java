@@ -14,11 +14,10 @@ public class TestLombok1 {
 	 */
 	public static void main(String[] args) {
 		DtoPojo1 dto = new DtoPojo1();
-		dto.setId(10L);
-		dto.setName("Ankur");
-		System.out.println(dto.getAddress());
-		System.out.println(dto.getId());
-		
+		// dto.setId(10L);
+		// dto.setName("Ankur");
+		// System.out.println(dto.getAddress());
+		// System.out.println(dto.getId());
 
 	}
 
