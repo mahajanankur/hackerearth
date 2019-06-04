@@ -19,7 +19,7 @@ public class TestPassByValue {
 		checkPassByValue(dog);
 		System.out.println("Dog Name after MAIN() method return : " + dog.getName());
 
-		// Check how to change value.
+		// Value would change as only the value has been changed not reference.
 		changeValueOfObject(dog);
 		System.out.println("Dog Name after changeValueOfObject() method return : " + dog.getName());
 
