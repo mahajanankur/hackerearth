@@ -15,15 +15,15 @@ public class NormalSynchronization {
 	}
 
 	public void first() {
-		// SynchronizationTypes outer = new SynchronizationTypes();
+		SynchronizationTypes outer = new SynchronizationTypes();
 
 		Thread t1 = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				// SynchronizationTypes outer = new SynchronizationTypes();
-				// outer.normalSynchronizedMethod(1);
-				SynchronizationTypes.staticSynchronizedMethod(1);
+				outer.normalSynchronizedMethod(1);
+				// SynchronizationTypes.staticSynchronizedMethod(1);
 			}
 		});
 		t1.setName("T1");
@@ -33,8 +33,8 @@ public class NormalSynchronization {
 			@Override
 			public void run() {
 				// SynchronizationTypes outer = new SynchronizationTypes();
-				// outer.normalSynchronizedMethod(100);
-				SynchronizationTypes.staticSynchronizedMethod(100);
+				outer.normalSynchronizedMethod(100);
+				// SynchronizationTypes.staticSynchronizedMethod(100);
 			}
 		});
 		t2.setName("T2");
