@@ -5,6 +5,9 @@ package com.java.threads;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author ankur.mahajan
@@ -14,10 +17,32 @@ public class BlockingQueueUsingList implements Runnable {
 
 	private BlockingQueue blockingQueue = new BlockingQueue();
 
+	// private volatile static int loop = 0;
+	private volatile static AtomicInteger loop = new AtomicInteger();
+
 	/**
 	 * @param args
+	 * @throws InterruptedException
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+		// byNormalThreadClass();
+		byExecutorService();
+	}
+
+	private static void byExecutorService() throws InterruptedException {
+		BlockingQueueUsingList bq = new BlockingQueueUsingList();
+		ExecutorService es = Executors.newFixedThreadPool(4);
+		while (loop.incrementAndGet() < 50) {
+			es.submit(bq);
+		}
+		// es.submit(bq);
+		// es.execute(bq);
+		// Thread.sleep(2000);
+		es.shutdown();
+
+	}
+
+	private static void byNormalThreadClass() {
 		BlockingQueueUsingList blockingQueueUsingList = new BlockingQueueUsingList();
 		Thread t1 = new Thread(blockingQueueUsingList, "Main 1");
 		Thread t2 = new Thread(blockingQueueUsingList, "Main 2");
@@ -56,59 +81,69 @@ public class BlockingQueueUsingList implements Runnable {
 		t16.start();
 		t17.start();
 		t18.start();
+
 	}
+
+	// @Override
+	// public void run() {
+	// try {
+	// if (Thread.currentThread().getName().equalsIgnoreCase("Main 16")
+	// || Thread.currentThread().getName().equalsIgnoreCase("Main 17")
+	// || Thread.currentThread().getName().equalsIgnoreCase("Main 18"))
+	// blockingQueue.dequeue();
+	// else
+	// blockingQueue.enqueue(Thread.currentThread().getName());
+	// } catch (InterruptedException e) {
+	// e.printStackTrace();
+	// }
+	// }
 
 	@Override
 	public void run() {
-
-		if (Thread.currentThread().getName().equalsIgnoreCase("Main 16")
-				|| Thread.currentThread().getName().equalsIgnoreCase("Main 17")
-				|| Thread.currentThread().getName().equalsIgnoreCase("Main 18"))
-			blockingQueue.dequeue();
-		else
-			blockingQueue.enqueue(Thread.currentThread().getName());
+		try {
+			// System.out.println("COUNT:: " + loop);
+			if (loop.incrementAndGet() % 6 == 0) {
+				Thread.sleep(1000);
+				blockingQueue.dequeue();
+			} else {
+				blockingQueue.enqueue(Thread.currentThread().getName());
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
 
 class BlockingQueue {
 
-	private List<Object> list = new ArrayList<>();
+	private volatile List<Object> list = new ArrayList<>();
 
 	private static final int BLOCKING_THRESHOLD = 10;
 
 	// Similar like add.
-	public synchronized void enqueue(Object o) {
+	public synchronized void enqueue(Object o) throws InterruptedException {
 		// synchronized (Thread.class) {
-		 while(list.size() == BLOCKING_THRESHOLD) {
-			try {
-				System.out.println("Blocked adding elements as threshold reached.");
-				wait();
-			}
-			catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+		while (list.size() == BLOCKING_THRESHOLD) {
+			System.out.println("Blocked adding elements as threshold reached.");
+			wait();
 		}
 		// Revoke All threads which are in waiting state.
 		if (list.size() == 0) {
 			notifyAll();
 		}
+		// Thread.sleep(2000);
 		list.add(o);
 		System.out.println("Object :" + o + " added to list current size : " + list.size());
 
 		// }
 	}
 
-	public synchronized void dequeue() {
+	public synchronized void dequeue() throws InterruptedException {
 		// synchronized (Thread.class) {
 		while (list.size() == 0) {
 			System.out.println("Blocked removing elements as list is empty.");
-			try {
-				wait();
-			}
-			catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			wait();
 		}
 		// Revoke All threads which are in waiting state.
 		if (list.size() == BLOCKING_THRESHOLD) {
@@ -116,7 +151,7 @@ class BlockingQueue {
 		}
 		list.remove(0);
 		System.out.println("Object: " + list.get(0) + " is deleted from list current size : " + list.size());
-
+		// Thread.sleep(2000);
 		// }
 	}
 

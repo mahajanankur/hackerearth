@@ -1,6 +1,9 @@
 package com.java.collection.sorting;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,7 +16,19 @@ public class SortStrings {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		firstApproach();
+		//firstApproach();
+		secondApproach();
+	}
+
+	private static void secondApproach() {
+		//r.rule_id as ruleId, r.priority as priority, r.type as type
+		List<String> asList = Arrays.asList("ruleId", "priority", "type");
+//		List<String> asList = Arrays.asList("ruleId", "subRuleId", "actionId", "type", "countryId", "actionType");
+		Collections.sort(asList);
+		for (String string : asList) {
+			System.out.println(string);
+		}
+
 	}
 
 	private static void firstApproach() {
@@ -26,8 +41,7 @@ public class SortStrings {
 		set.add("HALFYEAR");
 		set.add("MONTH");
 		set.stream().forEach(System.out::println);
-		
-		
+
 	}
 
 }
