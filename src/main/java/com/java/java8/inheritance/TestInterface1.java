@@ -14,7 +14,7 @@ public class TestInterface1 implements Interface1, Interface2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// firstApproach();
+		firstApproach();
 		C c = new C();
 		c.get(10L);
 	}
@@ -31,7 +31,6 @@ public class TestInterface1 implements Interface1, Interface2 {
 	@Override
 	public void abstractDetails() {
 		System.out.println("abstractDetails in child class.");
-
 	}
 
 	@Override

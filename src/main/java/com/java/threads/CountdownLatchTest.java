@@ -10,6 +10,16 @@ import java.util.concurrent.Executors;
 /**
  * @author ankur.mahajan
  * @written 11-Jul-2019
+ * 
+ * 
+ *          A CountDownLatch is a construct that a thread waits on while other
+ *          threads count down on the latch until it reaches zero.
+ * 
+ *          We can think of this like a dish at a restaurant that is being
+ *          prepared. No matter which cook prepares however many of the n items,
+ *          the waiter must wait until all the items are on the plate. If a
+ *          plate takes n items, any cook will count down on the latch for each
+ *          item she puts on the plate.
  */
 
 class Processor1 implements Runnable {

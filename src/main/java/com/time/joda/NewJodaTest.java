@@ -26,7 +26,7 @@ public class NewJodaTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String date = "2018/03/19";
+		String date = "2019/08/19";
 		String time = "07:19";
 		String concat = createJodaDateTimeFromString(date, time);
 		getUtcTime(concat);
