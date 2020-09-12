@@ -15,10 +15,9 @@ public class GenerateRandomString {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String value = RandomStringUtils.randomAlphabetic(10);
-		System.out.println(value);
-			 
-	
+		String prefix = "chanchal@";
+		String email = prefix + RandomStringUtils.randomAlphabetic(10) + ".com";
+		System.out.println(email);
 	}
 
 }
